@@ -1,16 +1,11 @@
 # examscheduler
 
-A new Flutter project.
+A flutter project for adding your upcoming Exams.
 
-## Getting Started
+## Basic Functionality
 
-This project is a starting point for a Flutter application.
+New exam can be added with given name and date by clicking the button in the AppBar.
 
-A few resources to get you started if this is your first Flutter project:
+The Form for new exam is displayed on the same screen where the list of upcoming Exams is displayed.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+The list of exams is displayed on the main screen and can be scrolled up and down.

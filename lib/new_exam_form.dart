@@ -4,7 +4,6 @@ import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
 class NewExamScreen extends StatefulWidget {
   Function _callFunc;
-  // VoidCallback _callFunction;
   NewExamScreen(this._callFunc, {Key? key}) : super(key: key);
 
   @override
@@ -87,20 +86,20 @@ class NewExamScreenState extends State<NewExamScreen> {
             ),
             // ignore: deprecated_member_use
             RaisedButton(
-                child: Text(
-                  "Submit",
-                  style: TextStyle(
-                      color: Theme.of(context).primaryColorDark, fontSize: 16),
-                ),
-                onPressed: () {
-                  if (!_formKey.currentState!.validate()) {
-                    return;
-                  }
-                  _formKey.currentState!.save();
+              child: Text(
+                "Submit",
+                style: TextStyle(
+                    color: Theme.of(context).primaryColorDark, fontSize: 16),
+              ),
+              onPressed: () {
+                if (!_formKey.currentState!.validate()) {
+                  return;
+                }
+                _formKey.currentState!.save();
 
-                  _callFunction(_subjectName, _dateAndTime);
-
-                })
+                _callFunction(_subjectName, _dateAndTime);
+              },
+            ),
           ],
         ),
       ),

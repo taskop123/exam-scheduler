@@ -49,22 +49,23 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: Text(widget.title),
-          actions: [
-            // ignore: deprecated_member_use
-            FlatButton(
-              onPressed: () {
-                setState(() {
-                  _pressed = !_pressed;
-                });
-              },
-              child: const Icon(Icons.add),
-            )
-          ],
-        ),
-        body: Column(children: [
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        title: Text(widget.title),
+        actions: [
+          // ignore: deprecated_member_use
+          FlatButton(
+            onPressed: () {
+              setState(() {
+                _pressed = !_pressed;
+              });
+            },
+            child: const Icon(Icons.add),
+          )
+        ],
+      ),
+      body: Column(
+        children: [
           _pressed
               ? NewExamScreen(_addNewExamWithArgs)
               : const Text("To add new Exam, tap the button in the menu"),
@@ -112,6 +113,8 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
           )
-        ]));
+        ],
+      ),
+    );
   }
 }

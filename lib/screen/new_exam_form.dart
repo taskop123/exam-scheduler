@@ -3,20 +3,19 @@ import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
 class NewExamScreen extends StatefulWidget {
-  Function _callFunc;
-  NewExamScreen(this._callFunc, {Key? key}) : super(key: key);
+  final Function _callFunc;
+  const NewExamScreen(this._callFunc, {Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    return NewExamScreenState(_callFunc);
-  }
+  State<StatefulWidget> createState()  => NewExamScreenState(_callFunc);
+
 }
 
 class NewExamScreenState extends State<NewExamScreen> {
   String _subjectName = "";
   DateTime _dateAndTime = DateTime.now();
   final _format = DateFormat("yyyy-MM-dd HH:mm");
-  Function _callFunction;
+  final Function _callFunction;
 
   NewExamScreenState(this._callFunction);
 

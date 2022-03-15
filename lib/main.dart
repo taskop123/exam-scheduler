@@ -4,6 +4,7 @@ import 'package:examscheduler/screen/event_location.dart';
 import 'package:examscheduler/screen/list_exam_screen.dart';
 import 'package:examscheduler/screen/main_screen.dart';
 import 'package:examscheduler/screen/map_screen.dart';
+import 'package:examscheduler/screen/path_screen.dart';
 import 'package:examscheduler/screen/search_page.dart';
 import 'package:examscheduler/util/global_theme.dart';
 import 'package:flutter/material.dart';
@@ -51,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
           MapScreen.routeName: (ctx) => const MapScreen(null),
           SearchScreen.routeName: (ctx) => const SearchScreen(),
           EventLocationScreen.routeName: (ctx) => const EventLocationScreen(),
+          PathScreen.routeName: (ctx) => const PathScreen(),
         },
         home: const MainScreen());
   }

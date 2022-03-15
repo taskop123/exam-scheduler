@@ -3,42 +3,61 @@ import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 
 import '../model/exam_class.dart';
 
-class EventLocationScreen extends StatefulWidget {
-  static const routeName = "/location";
+class PathScreen extends StatefulWidget {
+  static const routeName = "/path";
 
-  const EventLocationScreen({Key? key}) : super(key: key);
+  const PathScreen({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => EventLocationScreenState();
+  State<StatefulWidget> createState() => PathScreenState();
 }
 
-class EventLocationScreenState extends State<EventLocationScreen>
+class PathScreenState extends State<PathScreen>
     with AutomaticKeepAliveClientMixin {
   late MapController controller;
 
   @override
   @mustCallSuper
   Widget build(BuildContext context) {
+    super.build(context);
     final arguments = (ModalRoute.of(context)?.settings.arguments ??
         <String, dynamic>{}) as Map;
 
     GeoPoint location = arguments['location'];
 
     controller = MapController(
-      initMapWithUserPosition: false,
-      initPosition: location,
+      initMapWithUserPosition: true,
     );
 
-    super.build(context);
+    void drawMultiRoads() async {
+      GeoPoint currPosition = await controller.myLocation();
+
+      final configs = [
+        MultiRoadConfiguration(
+          startPoint: currPosition,
+          destinationPoint: location,
+        ),
+      ];
+      controller.drawMultipleRoad(
+        configs,
+        commonRoadOption: const MultiRoadOption(
+          roadType: RoadType.car,
+          roadColor: Colors.red,
+        ),
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Event Location"),
+        title: const Text("Path"),
       ),
       body: OSMFlutter(
         controller: controller,
         initZoom: 14,
         stepZoom: 2,
+        onMapIsReady: (isReady) {
+          drawMultiRoads();
+        },
         staticPoints: [
           StaticPositionGeoPoint(
               location.toString(),
@@ -51,6 +70,7 @@ class EventLocationScreenState extends State<EventLocationScreen>
               ),
               [location])
         ],
+        trackMyPosition: true,
       ),
     );
   }

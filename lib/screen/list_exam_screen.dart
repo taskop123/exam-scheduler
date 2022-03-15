@@ -1,5 +1,6 @@
 import 'package:examscheduler/model/exam_class.dart';
 import 'package:examscheduler/screen/event_location.dart';
+import 'package:examscheduler/screen/path_screen.dart';
 import 'package:flutter/material.dart';
 
 class ListExamScreen extends StatelessWidget {
@@ -52,6 +53,13 @@ class ListExamScreen extends StatelessWidget {
                       arguments: {"location": _exams[index].location});
                 },
                 child: const Text("Show on map"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PathScreen.routeName,
+                      arguments: {"location": _exams[index].location});
+                },
+                child: const Text("Show path"),
               ),
             ],
           ),

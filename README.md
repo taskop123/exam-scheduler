@@ -10,7 +10,15 @@ The Form for new exam is displayed on the same screen where the list of upcoming
 
 The list of exams is displayed on the main screen and can be scrolled up and down.
 
-## Advanced Functionality
+## Updated version(02.03.2022)
+You can create your own account with simple in-memory authentication.
+
+Now you can see your upcomming exams on a calendar.
+
+Get notified 1 hour, 30 minutes and right before the exam is happening.
+
+
+## Advanced Functionality (15.03.2022)
 
 Add location to upcoming exam.
 

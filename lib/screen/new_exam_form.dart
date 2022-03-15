@@ -1,4 +1,7 @@
+
+import 'package:examscheduler/screen/map_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
@@ -7,13 +10,13 @@ class NewExamScreen extends StatefulWidget {
   const NewExamScreen(this._callFunc, {Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState()  => NewExamScreenState(_callFunc);
-
+  State<StatefulWidget> createState() => NewExamScreenState(_callFunc);
 }
 
 class NewExamScreenState extends State<NewExamScreen> {
   String _subjectName = "";
   DateTime _dateAndTime = DateTime.now();
+  GeoPoint _point = GeoPoint(latitude: 42.003902, longitude: 21.409918);
   final _format = DateFormat("yyyy-MM-dd HH:mm");
   final Function _callFunction;
 
@@ -69,6 +72,10 @@ class NewExamScreenState extends State<NewExamScreen> {
     );
   }
 
+  void _setLocation(GeoPoint point){
+    _point = point;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -80,6 +87,7 @@ class NewExamScreenState extends State<NewExamScreen> {
           children: <Widget>[
             _buildName(),
             _buildDateAndTime(),
+            MapScreen(_setLocation),
             const SizedBox(
               height: 100,
             ),
@@ -96,7 +104,7 @@ class NewExamScreenState extends State<NewExamScreen> {
                 }
                 _formKey.currentState!.save();
 
-                _callFunction(_subjectName, _dateAndTime);
+                _callFunction(_subjectName, _dateAndTime, _point);
               },
             ),
           ],

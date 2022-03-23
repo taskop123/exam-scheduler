@@ -16,3 +16,14 @@ You can create your own account with simple in-memory authentication.
 Now you can see your upcomming exams on a calendar.
 
 Get notified 1 hour, 30 minutes and right before the exam is happening.
+
+## Advanced Functionality (15.03.2022)
+
+Add location to upcoming exam.
+
+See the location of the upcoming exam on map.exam
+
+See the shortest path from your current location to the destination location on map.
+
+- All these functionalities based on maps and locations are implemented using https://pub.dev/packages/flutter_osm_plugin not Google Maps API
+=======
